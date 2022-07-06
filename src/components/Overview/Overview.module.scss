@@ -1,0 +1,85 @@
+.overview {
+    height: 700px;
+    background-color: #003fa7;
+    padding-top: 10px;
+    .overview-left {
+        transition-delay: 0.5s;
+        transition: all 0.5s linear;
+        opacity: 0;
+        transform: translateX(-20%);
+        .overview-left_main {
+            .overview-left_list {
+                padding-top: 10px;
+                padding-bottom: 20px;
+                li {
+                    display: flex;
+                    margin-top: 5px;
+                    color: #fff;
+                    transition-delay: 1s;
+                    transition: all 0.5s linear;
+                    opacity: 0;
+                    transform: translateX(-20%);
+                }
+            }
+            .overview-left_btn {
+                display: block;
+                width: 220px;
+                height: 50px;
+                background-color: #0070d2;
+                color: #fff;
+                text-align: center;
+                line-height: 50px;
+                font-size: 17px;
+                font-weight: 500;
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(148, 199, 244, 0.242);
+                    transition: width 0.2s ease-in-out;
+                    width: 0px;
+                    height: 50px;
+                }
+                &:hover::after {
+                    width: 220px;
+                }
+            }
+        }
+    }
+    .overview-right {
+        display: flex;
+        align-items: center;
+        transition-delay: 0.5s;
+        transition: all 0.5s linear;
+        opacity: 0;
+        transform: translateY(20%);
+        .overview-right_img {
+            transition: all linear;
+            object-fit: cover;
+            z-index: 0;
+        }
+    }
+}
+
+.overview-ani {
+    .overview-left {
+        opacity: 1;
+        transform: translateX(0%);
+        .overview-left_main {
+            .overview-left_list {
+                li {
+                    opacity: 1;
+                    transform: translateX(0%);
+                }
+            }
+        }
+    }
+    .overview-right {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
