@@ -32,7 +32,7 @@ function Solution() {
       className={cx("solution", `${ani ? "solution-ani" : ""}`)}
       ref={parent}
     >
-      <img src="background.jpg" ref={child} alt="v-fast backgroungd" />
+      <img src="background-tech.jpg" ref={child} alt="v-fast backgroungd" />
       <div className={cx("overlay")}>
         <div className={cx("overlay-main")}>
           <h2 className="text-2xl tablet:text-3xl laptop:text-4xl font-semibold text-[#fff] mb-[20px]">

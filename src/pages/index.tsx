@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Body from "../layout/Body";
 import { useEffect, useState } from "react";
+import Footer from "../layout/Footer";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Body />
+      <Footer />
     </div>
   );
 };

@@ -1,9 +1,11 @@
 .brands {
-    background-color: #0091e9;
-    padding-left: 20px;
-    padding-right: 20px;
-    .brands-container {
-        margin: 0 auto;
-        height: 100%;
-    }
+  background-color: #0091e9;
+  padding-left: 20px;
+  padding-right: 20px;
+  .brands-container {
+    margin: 0 auto;
+    height: 100%;
+    background-color: #b3e5fc;
+    transform: translateY(-30px);
+  }
 }

@@ -45,8 +45,8 @@ function Brands() {
         )}`}
       >
         <div className=" p-[10px] laptop:px-[50px]">
-          <h2 className="text-[#fff] mt-2 laptop:text-xl font-medium mb-2">
-            ĐỐI TÁC CỦA CHÚNG TÔI
+          <h2 className="text-[#3d5067] mt-2 laptop:text-xl font-bold mb-2">
+            Đối tác của chúng tôi
           </h2>
           <div className="grid grid-cols-2 tablet:grid-cols-4  gap-[3px] ">
             {partner.map((p, index) => {
