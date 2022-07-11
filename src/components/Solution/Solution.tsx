@@ -14,16 +14,15 @@ function Solution() {
         if (vitriManhinh < 600 && ani == false) {
           setAni(true);
         }
-
-        if (vitriManhinh > 700 || vitriManhinh < -400) return;
+        if (vitriManhinh > screen.height || vitriManhinh < -400) return;
         child.current.style.transform = `translateY( -${Math.floor(
-          window.scrollY / 3
+          window.scrollY / 3 - 200
         )}px )`;
       }
     }
     document.addEventListener("scroll", handleScroll);
     return function cleanup() {
-      console.log("remove event scroll");
+      console.log("remove event scroll solution");
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);

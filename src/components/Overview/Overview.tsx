@@ -10,8 +10,8 @@ function Overview() {
   useEffect(() => {
     setAni(true);
     function handleMouseMove(e: MouseEvent) {
-      console.log("mousemove");
-      if (img.current != null) {
+      if (img.current != null && window.scrollY < 700) {
+        console.log("mousemove");
         img.current.style.transform = `translate(${(10 * e.clientX) / 1e3}px, ${
           (10 * e.clientY) / 1e3
         }px)`;

@@ -9,9 +9,9 @@ function Body() {
   return (
     <main className={cx("main")}>
       <Overview />
+      <Services />
       <Solution />
       <Brands />
-      <Services />
     </main>
   );
 }

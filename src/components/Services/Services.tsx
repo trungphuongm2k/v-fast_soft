@@ -1,8 +1,24 @@
 import classNames from "classnames/bind";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Services.module.scss";
 const cx = classNames.bind(styles);
 function Services() {
+  const services = useRef<any>();
+  const [ani, setAni] = useState<boolean>(false);
+  const handleScroll = () => {
+    const vitriManhinh = services.current.getClientRects()[0].top;
+    if (vitriManhinh - screen.height < 0) {
+      document.removeEventListener("scroll", handleScroll);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+    return function cleanup() {
+      console.log("remove event scroll service");
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const info = [
     {
       img: "/info/exclusive.png",
@@ -30,13 +46,13 @@ function Services() {
   return (
     <section className={cx("services")}>
       <div
-        className={`w-full laptop:m-auto laptop:w-[1000px] desktop:w-[1300px] ${cx(
+        className={`w-full laptop:m-auto laptop:w-[1000px] ${cx(
           "services-info"
         )}`}
       >
-        <h2 className="text-[#1976d2] font-bold tablet:text-2xl laptop:text-3xl mb-3">
+        {/* <h2 className="text-[#1976d2] font-bold tablet:text-2xl laptop:text-3xl mb-3">
           Sản phẩm dịch vụ chính
-        </h2>
+        </h2> */}
         <img
           className={cx("services-info_img")}
           src="/services.png"
@@ -47,6 +63,7 @@ function Services() {
         className={`w-full laptop:m-auto laptop:w-[1000px] desktop:w-[1300px] grid grid-cols-2 laptop:grid-cols-4 gap-[10px] desktop:gap-[50px] ${cx(
           "services-main"
         )}`}
+        ref={services}
       >
         {info.map((item, index) => {
           return (

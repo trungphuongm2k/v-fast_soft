@@ -8,22 +8,6 @@ function Brands() {
       url: "https://sunnymedia.net/",
     },
     {
-      img: "3f-fruits",
-      url: "https://3ffruits.com",
-    },
-    {
-      img: "anicon",
-      url: "https://anicon.asia/",
-    },
-    {
-      img: "lihaco-brand",
-      url: "https://lihaco.com.vn/",
-    },
-    {
-      img: "m1-viettel",
-      url: "http://m1.viettel.com.vn/",
-    },
-    {
       img: "mercury-media",
       url: "https://mercuryentertainment.net/",
     },
@@ -31,10 +15,25 @@ function Brands() {
       img: "sgm-music",
       url: "https://sgm-music.com/",
     },
-
     {
       img: "viet-stem",
       url: "https://vietstem.com/",
+    },
+    {
+      img: "vnpt",
+      url: "https://vnpt.com.vn/",
+    },
+    {
+      img: "m1-viettel",
+      url: "http://m1.viettel.com.vn/",
+    },
+    {
+      img: "lihaco-brand",
+      url: "https://lihaco.com.vn/",
+    },
+    {
+      img: "anicon",
+      url: "https://anicon.asia/",
     },
   ];
   return (
