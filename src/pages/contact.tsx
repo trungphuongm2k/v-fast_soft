@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 function Contact() {
   return (
