@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 function Policy() {
   return (
     <main
-      className={`w-full laptop:w-[90%] desktop:w-[80%] max-w-[1300px] pt-[100px] pb-[100px] m-auto ${cx(
+      className={`w-full laptop:w-[90%] desktop:w-[80%] max-w-[1300px] pt-[100px] pb-[50px] m-auto ${cx(
         "policy"
       )}`}
     >
