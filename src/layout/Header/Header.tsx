@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import classNames from "classnames/bind";
-import styles from "./Header.module.scss";
 import { FaAngleDown, FaAlignJustify, FaTimes } from "react-icons/fa";
+import { useRouter } from "next/router";
+import styles from "./Header.module.scss";
 const cx = classNames.bind(styles);
-console.log(cx("header"));
-
 function Header() {
   const [clickMenu, setClickMenu] = useState<boolean>(false);
+  const { pathname } = useRouter();
   const handleOpenModal = () => {
     setClickMenu(true);
     document.body.style.overflow = "hidden";
@@ -45,21 +45,21 @@ function Header() {
           >
             <li>
               <Link href="/">
-                <a>
+                <a style={{ color: `${pathname == "/" ? "blue" : ""}` }}>
                   Trang chủ <FaAngleDown className={cx("nav-laptop_icon")} />
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/contact">
-                <a>
+                <a style={{ color: `${pathname == "/contact" ? "blue" : ""}` }}>
                   Liên hệ <FaAngleDown className={cx("nav-laptop_icon")} />
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/policy">
-                <a>
+                <a style={{ color: `${pathname == "/policy" ? "blue" : ""}` }}>
                   Chính sách <FaAngleDown className={cx("nav-laptop_icon")} />
                 </a>
               </Link>

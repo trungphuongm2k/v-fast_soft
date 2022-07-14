@@ -7,7 +7,11 @@ function Services() {
   const services = useRef<any>();
   const [ani, setAni] = useState<boolean>(false);
   const handleScroll = () => {
+    if (services.current == null) return;
     const vitriManhinh = services.current.getClientRects()[0].top;
+    if (vitriManhinh - screen.height < 60 && ani == false) {
+      setAni(true);
+    }
     if (vitriManhinh - screen.height < 0) {
       document.removeEventListener("scroll", handleScroll);
     }
@@ -50,9 +54,6 @@ function Services() {
           "services-info"
         )}`}
       >
-        {/* <h2 className="text-[#1976d2] font-bold tablet:text-2xl laptop:text-3xl mb-3">
-          Sản phẩm dịch vụ chính
-        </h2> */}
         <img
           className={cx("services-info_img")}
           src="/services.png"
@@ -67,7 +68,13 @@ function Services() {
       >
         {info.map((item, index) => {
           return (
-            <div key={index} className={cx("services-main_item")}>
+            <div
+              key={index}
+              className={cx(
+                "services-main_item",
+                `${ani ? "services-main_ani" : ""}`
+              )}
+            >
               <img src={item.img} alt="" />
               <div>
                 <h3 className="text-lg laptop:text-xl desktop:text-2xl">

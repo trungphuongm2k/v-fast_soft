@@ -1,0 +1,20 @@
+.policy {
+    >div {
+        font-size: 16px;
+        >p {
+            margin-top: 10px;
+            text-align: left;
+            strong {
+                font-size: 18px;
+            }
+        }
+        ul {
+            list-style: circle;
+            list-style-type: disc;
+            padding-left: 20px;
+            >li {
+                color: #f05f40;
+            }
+        }
+    }
+}
