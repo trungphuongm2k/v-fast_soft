@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import classNames from "classnames/bind";
 import { FaAngleDown, FaAlignJustify, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/router";
@@ -8,6 +8,25 @@ const cx = classNames.bind(styles);
 function Header() {
   const [clickMenu, setClickMenu] = useState<boolean>(false);
   const { pathname } = useRouter();
+  const header = useRef<any>();
+  useEffect(() => {
+    const handleScroll = () => {
+      const positionScroll = window.scrollY;
+      const headerElement = header.current;
+      if (headerElement != null) {
+        if (positionScroll <= 100) {
+          headerElement.style.height = "100px";
+        } else {
+          headerElement.style.height = "65px";
+        }
+      }
+    };
+    document.addEventListener("scroll", handleScroll);
+    return function cleanup() {
+      console.log("remove event scroll header");
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const handleOpenModal = () => {
     setClickMenu(true);
     document.body.style.overflow = "hidden";
@@ -17,7 +36,7 @@ function Header() {
     document.body.style.overflow = "auto";
   };
   return (
-    <header className={cx("header")}>
+    <header ref={header} className={cx("header")}>
       <nav className={`${cx("nav")} w-full desktop:w-[1270px]`}>
         <div className={cx("nav-logo")}>
           <Link href="/">
