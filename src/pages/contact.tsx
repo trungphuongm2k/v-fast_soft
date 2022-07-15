@@ -20,8 +20,8 @@ function Contact() {
           </p>
 
           <FaPhoneAlt className="text-[#fff] text-4xl  pb-2" />
-          <a className="text-[#fff] text-xl pb-2" href="tel:+84972734861">
-            0972734861
+          <a className="text-[#fff] text-xl pb-2" href="tel:+84896626625">
+            0896626625
           </a>
           <FaEnvelope className="text-[#fff] text-4xl  pb-2" />
           <a
@@ -32,10 +32,7 @@ function Contact() {
           </a>
           <FaMapMarkedAlt className="text-[#fff] text-4xl  pb-2" />
           <p className="text-[#fff] text-xl pb-2">
-            Phố Trần Cung, Bắc Từ Liêm, Hà Nội
-          </p>
-          <p className="text-[#fff] text-xl">
-            Phố Thọ Tháp, Dịch Vọng, Cầu Giấy, Hà Nội
+            Tòa nhà Park Home, Đường Trần Thái Tông, Quận Cầu Giấy, TP Hà Nội.
           </p>
         </div>
       </div>
