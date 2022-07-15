@@ -57,4 +57,4 @@ deploy:
     - >
       ssh $SSH_USER@$SSH_SERVER_IP -p $SSH_PORT
       'echo "$VULTR_K8S_CONFIG" > ~/.kube/config;
-      kubectl -n track-api rollout restart deployment/vfast-soft-deployment;'
+      kubectl -n vfast-soft rollout restart deployment/vfast-soft-deployment;'
