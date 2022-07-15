@@ -91,7 +91,7 @@ function Services() {
           "services-connect"
         )}`}
       >
-        <h3 className="text-lg laptop:text-xl desktop:text-2xl">
+        <h3 className="text-lg laptop:text-xl desktop:text-xl">
           Nếu bạn đã sẵn sàng tin tưởng giao dự án của mình cho chúng tôi? Thật
           tuyệt vời hãy kết nối ngay với chúng tôi để được sử dụng những dịch vụ
           tốt nhất!
