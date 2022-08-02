@@ -56,5 +56,6 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
     - >
       ssh $SSH_USER@$SSH_SERVER_IP -p $SSH_PORT
-      "cat ~/.kube/vultr-config > ~/.kube/config;
-      kubectl -n vfast-soft rollout restart deployment/vfast-soft-deployment;"
+      "cd $PROJECT_PATH;
+      docker-compose up -d;
+      docker image prune -f;"
