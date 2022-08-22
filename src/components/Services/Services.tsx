@@ -3,7 +3,17 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Services.module.scss";
 const cx = classNames.bind(styles);
-function Services() {
+
+export interface Props {
+  service: [{
+    id: string;
+    img: string;
+    title: string;
+    description: string;
+  }]
+}
+
+function Services(props: Props) {
   const services = useRef<any>();
   const [ani, setAni] = useState<boolean>(false);
   const handleScroll = () => {
@@ -23,30 +33,6 @@ function Services() {
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const info = [
-    {
-      img: "/info/exclusive.png",
-      title: "Sản phẩm độc quyền",
-      description:
-        "Phát triển sản phẩm theo các yêu cầu riêng, đặc biệt và duy nhất.",
-    },
-    {
-      img: "/info/multi-flatform.png",
-      title: "Ứng dụng đa nền tảng",
-      description:
-        "Các sản phẩm trên nền tảng Website, App, Game mobile, thiết bị thông minh - nhúng!",
-    },
-    {
-      img: "/info/erp.png",
-      title: "Ứng dụng ERP",
-      description: "Quản lý doanh nghiệp theo cách của bạn.",
-    },
-    {
-      img: "/info/ai.png",
-      title: "Ứng dụng trí tuệ nhân tạo AI",
-      description: "Xử lý hình ảnh, âm thanh, giọng nói!",
-    },
-  ];
   return (
     <section className={cx("services")}>
       <div
@@ -66,16 +52,16 @@ function Services() {
         )}`}
         ref={services}
       >
-        {info.map((item, index) => {
+        {props.service.map((item) => {
           return (
             <div
-              key={index}
+              key={item.id}
               className={cx(
                 "services-main_item",
                 `${ani ? "services-main_ani" : ""}`
               )}
             >
-              <img src={item.img} alt="" />
+              <img src={process.env.HOST_NAME_API + "/" + item.img} alt="" />
               <div>
                 <h3 className="text-lg laptop:text-xl desktop:text-2xl">
                   {item.title}

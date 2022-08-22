@@ -1,41 +1,16 @@
 import classNames from "classnames/bind";
 import styles from "./Brands.module.scss";
 const cx = classNames.bind(styles);
-function Brands() {
-  const partner = [
-    {
-      img: "sunny-media",
-      url: "https://sunnymedia.net/",
-    },
-    {
-      img: "mercury-media",
-      url: "https://mercuryentertainment.net/",
-    },
-    {
-      img: "sgm-music",
-      url: "https://sgm-music.com/",
-    },
-    {
-      img: "viet-stem",
-      url: "https://vietstem.com/",
-    },
-    {
-      img: "vnpt",
-      url: "https://vnpt.com.vn/",
-    },
-    {
-      img: "m1-viettel",
-      url: "http://m1.viettel.com.vn/",
-    },
-    {
-      img: "lihaco-brand",
-      url: "https://lihaco.com.vn/",
-    },
-    {
-      img: "anicon",
-      url: "https://anicon.asia/",
-    },
-  ];
+interface Props {
+  partner: [{
+    id: string;
+    name: string;
+    img: string;
+    url: string;
+  }]
+}
+
+function Brands(props: Props) {
   return (
     <section className={`tablet:h-[300px] ${cx("brands")}`}>
       <div
@@ -48,14 +23,14 @@ function Brands() {
             Đối tác của chúng tôi
           </h2>
           <div className="grid grid-cols-2 tablet:grid-cols-4  gap-[3px] ">
-            {partner.map((p, index) => {
+            {props.partner.map((p) => {
               return (
-                <div className="h-[100px] laptop:h-[120px]" key={index}>
+                <div className="h-[100px] laptop:h-[120px]" key={p.id}>
                   <a href={p.url} target="blank">
                     <img
                       className="w-full h-full "
-                      src={`/partner/${p.img}.jpg`}
-                      alt={p.img}
+                      src={process.env.HOST_NAME_API + "/" + p.img}
+                      alt={p.name}
                     />
                   </a>
                 </div>

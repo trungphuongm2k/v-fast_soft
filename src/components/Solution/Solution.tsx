@@ -3,7 +3,14 @@ import classNames from "classnames/bind";
 import Link from "next/link";
 import styles from "./Solution.module.scss";
 const cx = classNames.bind(styles);
-function Solution() {
+interface Props {
+  solution: {
+    id: string;
+    title: string;
+    description: string;
+  }
+}
+function Solution(props: Props) {
   const parent = useRef<any>();
   const child = useRef<any>();
   const [ani, setAni] = useState<boolean>(false);
@@ -35,16 +42,11 @@ function Solution() {
       <div className={cx("overlay")}>
         <div className={cx("overlay-main")}>
           <h2 className="text-2xl tablet:text-3xl laptop:text-4xl font-semibold text-[#fff] mb-[20px]">
-            Chúng tôi có những gì bạn muốn!
+            {props.solution.title}
           </h2>
           <hr className="w-[130px] h-[5px] bg-white" />
           <p className=" text-[#fff] p-4 w-full tablet:text-lg tablet:w-[600px] laptop:w-[900px] laptop:text-xl">
-            Công ty Giải pháp Công nghệ V-FAST cung cấp một loạt các giải pháp
-            công nghệ đáp ứng các nhu cầu cụ thể của khách hàng làm việc tại
-            nhiều tổ chức cũng như các doanh nghiệp kinh doanh. Nhiệm vụ phát
-            triển phần mềm của chúng tôi bao gồm: Phát triển sản phẩm độc quyền,
-            Hệ thống ERP, Website, App và Game mobile, Hệ thống ứng dụng trí tuệ
-            nhân tạo AI, Phát triển thiết bị thông minh, thiết bị nhúng ...
+            {props.solution.description}
           </p>
         </div>
         <Link href="/contact">
