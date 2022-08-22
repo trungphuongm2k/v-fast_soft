@@ -1,8 +1,33 @@
 import classNames from "classnames/bind";
 import styles from "./Footer.module.scss";
 import { FaFacebookF, FaYoutube, FaGooglePlusG } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { getCompany, getContact } from "../../api/fetchApi";
 const cx = classNames.bind(styles);
+
 function Footer() {
+  const [logo, setLogo] = useState<string>("");
+  const [add, setAdd] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const resCompany = await getCompany();
+        const resContact = await getContact();
+        const company = resCompany.data[0];
+        const contact = resContact.data[0];
+        setLogo(company.logo);
+        setAdd(contact.add);
+        setEmail(contact.email);
+        setPhone(contact.phone);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
   return (
     <footer className={cx("footer")}>
       <div className="flex flex-col tablet:flex-row justify-center">
@@ -10,20 +35,20 @@ function Footer() {
           <h1>
             <img
               className="w-[120px] py-5"
-              src="vfast-logo.png"
+              src={process.env.HOST_NAME_API + "/" + logo}
               alt="Công ty giải pháp công nghệ v-fast"
             />
           </h1>
           <p>
-            - Tòa nhà Park Home, Đường Trần Thái Tông, Quận Cầu Giấy, TP Hà Nội.
+            - {add}
           </p>
           <p>
-            <a href="mailto:contact@vfastsoft.com">
-              - Email: contact@vfastsoft.com
+            <a href={`mailto:${email}`}>
+              - Email: {email}
             </a>
           </p>
           <p>
-            <a href="tel:+84896626625">- Phone: 0896626625</a>
+            <a href={`tel:${phone}`}>- Phone: {phone}</a>
           </p>
           <div className={cx("contact-icon")}>
             <a href="#" className="text-[#3e1cfd]">

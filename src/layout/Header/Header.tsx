@@ -4,11 +4,27 @@ import classNames from "classnames/bind";
 import { FaAngleDown, FaAlignJustify, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/router";
 import styles from "./Header.module.scss";
+import { getCompany } from "../../api/fetchApi";
 const cx = classNames.bind(styles);
+
 function Header() {
   const [clickMenu, setClickMenu] = useState<boolean>(false);
+  const [logo, setLogo] = useState<string>("");
+  const [companyName, setCompanyName] = useState<string>("");
   const { pathname } = useRouter();
   const header = useRef<any>();
+  useEffect(() => {
+    (async () => {
+      try {
+        const resCompany = await getCompany();
+        const company = resCompany.data[0];
+        setLogo(company.logo as string);
+        setCompanyName(company.name as string);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       const positionScroll = window.scrollY;
@@ -43,7 +59,7 @@ function Header() {
             <a>
               <img
                 className={cx("img-logo")}
-                src="/vfast-logo.png"
+                src={process.env.HOST_NAME_API + "/" + logo}
                 alt="logo vfast"
               />
             </a>
@@ -52,9 +68,9 @@ function Header() {
         <h1
           className={`${cx(
             "nav-title"
-          )}  font-bold hidden tablet:block tablet:text-2xl laptop:text-3xl `}
+          )}  font-bold hidden tablet:block tablet:text-2xl laptop:text-3xl uppercase `}
         >
-          CÔNG TY GIẢI PHÁP CÔNG NGHỆ V-FAST
+          {companyName}
         </h1>
         <div className={`${cx("nav-laptop")} hidden laptop:block`}>
           <ul

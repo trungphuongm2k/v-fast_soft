@@ -1,43 +1,81 @@
+import Head from "next/head";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
-function Contact() {
-  return (
-    <main className="h-screen w-full">
-      <div className="relative w-full h-full pt-[100px]">
-        <img
-          className="w-full h-full object-cover"
-          src="/contact.jpg"
-          alt="Hợp tác với chúng tôi"
-        />
-        <div className="absolute top-1/2 left-0 translate-y-[-50%] bg-[#0000007b] w-full h-full p-[20px] flex flex-col justify-center items-center">
-          <h1 className="text-[#fff] text-3xl font-semibold py-5">
-            Liên hệ với chúng tôi!
-          </h1>
-          <hr className="w-[100px] border-2" />
-          <p className="text-[#fff] p-5 text-xl text-center">
-            Nếu bạn đã sẵn sàng tin tưởng giao dự án của mình cho chúng tôi?
-            Thật tuyệt vời, hãy gọi điện hoặc mail cho chúng tôi, chúng tôi sẽ
-            phản hồi cho bạn nhanh nhất có thể!
-          </p>
-
-          <FaPhoneAlt className="text-[#fff] text-4xl  pb-2" />
-          <a className="text-[#fff] text-xl pb-2" href="tel:+84896626625">
-            0896626625
-          </a>
-          <FaEnvelope className="text-[#fff] text-4xl  pb-2" />
-          <a
-            className="text-[#fff] text-xl pb-2"
-            href="mailto:contact@vfastsoft.com"
-          >
-            contact@vfastsoft.com
-          </a>
-          <FaMapMarkedAlt className="text-[#fff] text-4xl  pb-2" />
-          <p className="text-[#fff] text-xl pb-2">
-            Tòa nhà Park Home, Đường Trần Thái Tông, Quận Cầu Giấy, TP Hà Nội.
-          </p>
-        </div>
-      </div>
-    </main>
-  );
+import { getContact } from "../api/fetchApi";
+interface Props {
+  contact: {
+    id: string;
+    title: string;
+    description: string;
+    phone: string;
+    email: string;
+    add: string;
+  }
 }
 
+function Contact(props: Props) {
+  return (
+    <>
+      <Head>
+        <title>Liên hệ</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          id="metaDescription"
+          name="description"
+          content="Công ty Giải pháp Công nghệ V-FAST cung cấp một loạt các giải pháp công nghệ đáp ứng các nhu cầu cụ thể của khách hàng làm việc tại nhiều tổ chức cũng như các doanh nghiệp kinh doanh."
+        ></meta>
+        <meta
+          property="og:description"
+          content="Công ty Giải pháp Công nghệ V-FAST cung cấp một loạt các giải pháp công nghệ đáp ứng các nhu cầu cụ thể của khách hàng làm việc tại nhiều tổ chức cũng như các doanh nghiệp kinh doanh."
+        ></meta>
+      </Head>
+      <main className="h-screen w-full">
+        <div className="relative w-full h-full pt-[100px]">
+          <img
+            className="w-full h-full object-cover"
+            src="/contact.jpg"
+            alt="Hợp tác với chúng tôi"
+          />
+          <div className="absolute top-1/2 left-0 translate-y-[-50%] bg-[#0000007b] w-full h-full p-[20px] flex flex-col justify-center items-center">
+            <h1 className="text-[#fff] text-3xl font-semibold py-5">
+              {props.contact.title}
+            </h1>
+            <hr className="w-[100px] border-2" />
+            <p className="text-[#fff] p-5 text-xl text-center">
+              {props.contact.description}
+            </p>
+
+            <FaPhoneAlt className="text-[#fff] text-4xl  pb-2" />
+            <a className="text-[#fff] text-xl pb-2" href={`tel:${props.contact.phone}`}>
+              {props.contact.phone}
+            </a>
+            <FaEnvelope className="text-[#fff] text-4xl  pb-2" />
+            <a
+              className="text-[#fff] text-xl pb-2"
+              href={`mailto:${props.contact.email}`}
+            >
+              {props.contact.email}
+            </a>
+            <FaMapMarkedAlt className="text-[#fff] text-4xl  pb-2" />
+            <p className="text-[#fff] text-xl pb-2">
+              {props.contact.add}
+            </p>
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}
+export async function getStaticProps() {
+  try {
+    const resContact = await getContact();
+    const contact = resContact.data[0];
+
+    return {
+      props: { contact },
+      revalidate: 60,
+    }
+  } catch (error) {
+    return { notFound: true };
+  }
+}
 export default Contact;

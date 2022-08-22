@@ -1,0 +1,10 @@
+version: "3"
+services:
+  frontend:
+    container_name: v-fast-soft
+    image: vfast:latest
+    ports:
+      - "3001:3000"
+    environment:
+      # DB Config
+      - HOST_NAME_API=https://vfast-api.vfxstudio.dev
