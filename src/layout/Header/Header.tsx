@@ -130,7 +130,7 @@ function Header() {
               <div className={cx("nav-logo_mobile")}>
                 <img
                   className={cx("img-logo-mobile")}
-                  src="/vfast-logo.png"
+                  src={process.env.HOST_NAME_API + "/" + logo}
                   alt="logo vfast"
                 />
               </div>
