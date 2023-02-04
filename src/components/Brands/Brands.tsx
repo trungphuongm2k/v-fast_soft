@@ -1,21 +1,24 @@
-import classNames from "classnames/bind";
-import styles from "./Brands.module.scss";
+import classNames from 'classnames/bind';
+import Image from 'next/image';
+import styles from './Brands.module.scss';
 const cx = classNames.bind(styles);
 interface Props {
-  partner: [{
-    id: string;
-    name: string;
-    img: string;
-    url: string;
-  }]
+  partner: [
+    {
+      id: string;
+      name: string;
+      img: string;
+      url: string;
+    }
+  ];
 }
 
 function Brands(props: Props) {
   return (
-    <section className={`tablet:h-[300px] ${cx("brands")}`}>
+    <section className={`tablet:h-[300px] ${cx('brands')}`}>
       <div
         className={`laptop:w-[900px] desktop:w-[1100px] ${cx(
-          "brands-container"
+          'brands-container'
         )}`}
       >
         <div className=" p-[10px] laptop:px-[50px]">
@@ -27,10 +30,12 @@ function Brands(props: Props) {
               return (
                 <div className="h-[100px] laptop:h-[120px]" key={p.id}>
                   <a href={p.url} target="blank">
-                    <img
+                    <Image
                       className="w-full h-full "
-                      src={process.env.HOST_NAME_API + "/" + p.img}
+                      src={process.env.HOST_NAME_API + '/' + p.img}
                       alt={p.name}
+                      width={300}
+                      height={150}
                     />
                   </a>
                 </div>
