@@ -26,24 +26,7 @@ function Header() {
       }
     })();
   }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      const positionScroll = window.scrollY;
-      const headerElement = header.current;
-      if (headerElement != null) {
-        if (positionScroll <= 100) {
-          headerElement.style.height = '100px';
-        } else {
-          headerElement.style.height = '65px';
-        }
-      }
-    };
-    document.addEventListener('scroll', handleScroll);
-    return function cleanup() {
-      console.log('remove event scroll header');
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+
   const handleOpenModal = () => {
     setClickMenu(true);
     document.body.style.overflow = 'hidden';

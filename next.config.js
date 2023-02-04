@@ -7,6 +7,8 @@ const nextConfig = {
   },
   images: {
     domains: ['dev-vfast-api.vfastsoft.com'],
+    path: '/_next/image',
+    minimumCacheTTL: 60,
   },
 };
 
