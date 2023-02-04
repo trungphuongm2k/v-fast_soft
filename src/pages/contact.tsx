@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo';
-import Head from 'next/head';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
+import Image from 'next/image';
 import { getContact } from '../api/fetchApi';
 interface Props {
   contact: {
@@ -22,11 +22,12 @@ function Contact(props: Props) {
       />
       <main className="h-screen w-full">
         <div className="relative w-full h-full pt-[100px]">
-          {/* // eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             className="w-full h-full object-cover"
             src="/contact.jpg"
             alt="Hợp tác với chúng tôi"
+            width={1000}
+            height={1000}
           />
           <div className="absolute top-1/2 left-0 translate-y-[-50%] bg-[#0000007b] w-full h-full p-[20px] flex flex-col justify-center items-center">
             <h1 className="text-[#fff] text-3xl font-semibold py-5">
@@ -62,7 +63,17 @@ function Contact(props: Props) {
 export async function getStaticProps() {
   try {
     const resContact = await getContact();
-    const contact = resContact.data[0];
+    const contact = resContact.data[0]
+      ? resContact.data[0]
+      : {
+          id: '630232e2e579d5bed507707f',
+          title: 'Liên hệ với chúng tôi!',
+          description:
+            'Nếu bạn đã sẵn sàng tin tưởng giao dự án của mình cho chúng tôi? Thật tuyệt vời, hãy gọi điện hoặc mail cho chúng tôi, chúng tôi sẽ phản hồi cho bạn nhanh nhất có thể!',
+          phone: '+84 972 734 861',
+          email: 'contact@vfastsoft.com',
+          add: 'Ngõ 158, Đường Nguyễn Khánh Toàn, Phường Quan Hoa, Quận Cầu Giấy, TP Hà Nội',
+        };
 
     return {
       props: { contact },

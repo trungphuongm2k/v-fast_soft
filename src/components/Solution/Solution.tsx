@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import classNames from "classnames/bind";
-import Link from "next/link";
-import styles from "./Solution.module.scss";
+import { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames/bind';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './Solution.module.scss';
 const cx = classNames.bind(styles);
 interface Props {
   solution: {
     id: string;
     title: string;
     description: string;
-  }
+  };
 }
 function Solution(props: Props) {
   const parent = useRef<any>();
@@ -27,20 +28,26 @@ function Solution(props: Props) {
         )}px )`;
       }
     }
-    document.addEventListener("scroll", handleScroll);
+    document.addEventListener('scroll', handleScroll);
     return function cleanup() {
-      console.log("remove event scroll solution");
-      document.removeEventListener("scroll", handleScroll);
+      console.log('remove event scroll solution');
+      document.removeEventListener('scroll', handleScroll);
     };
   }, []);
   return (
     <section
-      className={cx("solution", `${ani ? "solution-ani" : ""}`)}
+      className={cx('solution', `${ani ? 'solution-ani' : ''}`)}
       ref={parent}
     >
-      <img src="background-tech.jpg" ref={child} alt="v-fast backgroungd" />
-      <div className={cx("overlay")}>
-        <div className={cx("overlay-main")}>
+      <Image
+        src="/background-tech.jpg"
+        ref={child}
+        alt="v-fast backgroungd"
+        width={800}
+        height={800}
+      />
+      <div className={cx('overlay')}>
+        <div className={cx('overlay-main')}>
           <h2 className="text-2xl tablet:text-3xl laptop:text-4xl font-semibold text-[#fff] mb-[20px]">
             {props.solution.title}
           </h2>
@@ -49,8 +56,8 @@ function Solution(props: Props) {
             {props.solution.description}
           </p>
         </div>
-        <Link href="/contact">
-          <a className={cx("solution-btn")}>Tìm hiểu kỹ hơn</a>
+        <Link href="/contact" className={cx('solution-btn')}>
+          Tìm hiểu kỹ hơn
         </Link>
       </div>
     </section>

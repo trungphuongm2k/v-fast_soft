@@ -1,16 +1,19 @@
-import classNames from "classnames/bind";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import styles from "./Services.module.scss";
+import classNames from 'classnames/bind';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import styles from './Services.module.scss';
 const cx = classNames.bind(styles);
 
 export interface Props {
-  service: [{
-    id: string;
-    img: string;
-    title: string;
-    description: string;
-  }]
+  service: [
+    {
+      id: string;
+      img: string;
+      title: string;
+      description: string;
+    }
+  ];
 }
 
 function Services(props: Props) {
@@ -23,32 +26,34 @@ function Services(props: Props) {
       setAni(true);
     }
     if (vitriManhinh - screen.height < 0) {
-      document.removeEventListener("scroll", handleScroll);
+      document.removeEventListener('scroll', handleScroll);
     }
   };
   useEffect(() => {
-    document.addEventListener("scroll", handleScroll);
+    document.addEventListener('scroll', handleScroll);
     return function cleanup() {
-      console.log("remove event scroll service");
-      document.removeEventListener("scroll", handleScroll);
+      console.log('remove event scroll service');
+      document.removeEventListener('scroll', handleScroll);
     };
   }, []);
   return (
-    <section className={cx("services")}>
+    <section className={cx('services')}>
       <div
         className={`w-full laptop:m-auto laptop:w-[1000px] ${cx(
-          "services-info"
+          'services-info'
         )}`}
       >
-        <img
-          className={cx("services-info_img")}
+        <Image
+          className={cx('services-info_img')}
           src="/services.png"
           alt="Dịch vụ của v-fast"
+          width={1000}
+          height={1000}
         />
       </div>
       <div
         className={`w-full laptop:m-auto laptop:w-[1000px] desktop:w-[1300px] grid grid-cols-2 laptop:grid-cols-4 gap-[10px] desktop:gap-[50px] ${cx(
-          "services-main"
+          'services-main'
         )}`}
         ref={services}
       >
@@ -57,11 +62,16 @@ function Services(props: Props) {
             <div
               key={item.id}
               className={cx(
-                "services-main_item",
-                `${ani ? "services-main_ani" : ""}`
+                'services-main_item',
+                `${ani ? 'services-main_ani' : ''}`
               )}
             >
-              <img src={process.env.HOST_NAME_API + "/" + item.img} alt="" />
+              <Image
+                src={process.env.HOST_NAME_API + '/' + item.img}
+                alt={item.title}
+                width={120}
+                height={120}
+              />
               <div>
                 <h3 className="text-lg laptop:text-xl desktop:text-2xl">
                   {item.title}
@@ -74,7 +84,7 @@ function Services(props: Props) {
       </div>
       <div
         className={`w-full laptop:w-[1000px] desktop:w-[1300px] ${cx(
-          "services-connect"
+          'services-connect'
         )}`}
       >
         <h3 className="text-lg laptop:text-xl desktop:text-xl">
@@ -82,8 +92,8 @@ function Services(props: Props) {
           tuyệt vời hãy kết nối ngay với chúng tôi để được sử dụng những dịch vụ
           tốt nhất!
         </h3>
-        <Link href="/contact">
-          <a className={cx("services-connect_btn")}>LIÊN HỆ VỚI CHÚNG TÔI</a>
+        <Link href="/contact" className={cx('services-connect_btn')}>
+          LIÊN HỆ VỚI CHÚNG TÔI
         </Link>
       </div>
     </section>

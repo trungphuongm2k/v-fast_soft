@@ -38,7 +38,11 @@ function Policy(props: Props) {
 export async function getStaticProps() {
   try {
     const res = await getPolicy();
-    const policyContent = res.data[0].content;
+    const policyContent = res.data[0].content
+      ? res.data[0].content
+      : {
+          policyContent: '',
+        };
     return {
       props: { policyContent },
       revalidate: 60,
