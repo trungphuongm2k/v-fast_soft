@@ -6,14 +6,16 @@ const nextConfig = {
     HOST_NAME_API: process.env.HOST_NAME_API,
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**.vfastsoft.com',
       },
     ],
-    domains: ['https://dev-vfast-api.vfastsoft.com', 'vfastsoft.com'],
-    path: '/_next/image',
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    domains: ['dev-vfast-api.vfastsoft.com'],
+    loader: 'default',
   },
 };
 
