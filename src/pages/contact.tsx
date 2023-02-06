@@ -24,7 +24,7 @@ function Contact(props: Props) {
         <div className="relative w-full h-full pt-[100px]">
           <img
             className="w-full h-full object-cover"
-            src="/contact.jpg"
+            src="/contact.webp"
             alt="Hợp tác với chúng tôi"
             // width={900}
             // height={900}

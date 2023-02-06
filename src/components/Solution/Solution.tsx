@@ -40,7 +40,7 @@ function Solution(props: Props) {
       ref={parent}
     >
       <img
-        src="/background-tech.jpg"
+        src="/background-tech.webp"
         ref={child}
         alt="v-fast backgroungd"
         // width={800}

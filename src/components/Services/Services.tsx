@@ -45,7 +45,7 @@ function Services(props: Props) {
       >
         <img
           className={cx('services-info_img')}
-          src="/services.png"
+          src="/services.webp"
           alt="Dịch vụ của v-fast"
           // width={900}
           // height={900}

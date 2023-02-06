@@ -81,7 +81,7 @@ function Overview(props: Props) {
           className={`m-auto w-[380px] tablet:w-[450px] laptop:w-[700px] laptop:m-0 ${cx(
             'overview-right_img'
           )}`}
-          src="/banner-vfast.png"
+          src="/banner-vfast.webp"
           alt="CÔNG TY GIẢI PHÁP CÔNG NGHỆ V-FAST"
           ref={img}
           // width={800}
