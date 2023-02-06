@@ -7,12 +7,6 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**.vfastsoft.com',
-      },
-    ],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     domains: ['dev-vfast-api.vfastsoft.com'],
     loader: 'default',

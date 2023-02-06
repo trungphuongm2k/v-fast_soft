@@ -43,12 +43,12 @@ function Services(props: Props) {
           'services-info'
         )}`}
       >
-        <Image
+        <img
           className={cx('services-info_img')}
           src="/services.png"
           alt="Dịch vụ của v-fast"
-          width={900}
-          height={900}
+          // width={900}
+          // height={900}
         />
       </div>
       <div
@@ -66,11 +66,11 @@ function Services(props: Props) {
                 `${ani ? 'services-main_ani' : ''}`
               )}
             >
-              <Image
+              <img
                 src={process.env.HOST_NAME_API + '/' + item.img}
                 alt={item.title}
-                width={120}
-                height={120}
+                // width={120}
+                // height={120}
               />
               <div>
                 <h3 className="text-lg laptop:text-xl desktop:text-2xl">

@@ -34,12 +34,12 @@ function Footer() {
       <div className="flex flex-col tablet:flex-row justify-center">
         <div className=" p-[15px]">
           <h1>
-            <Image
+            <img
               className="w-[120px] py-5"
               src={process.env.HOST_NAME_API + '/' + logo}
               alt="Công ty giải pháp công nghệ v-fast"
-              width={200}
-              height={100}
+              // width={200}
+              // height={100}
             />
           </h1>
           <p>- {add}</p>

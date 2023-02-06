@@ -39,12 +39,12 @@ function Solution(props: Props) {
       className={cx('solution', `${ani ? 'solution-ani' : ''}`)}
       ref={parent}
     >
-      <Image
+      <img
         src="/background-tech.jpg"
         ref={child}
         alt="v-fast backgroungd"
-        width={800}
-        height={800}
+        // width={800}
+        // height={800}
       />
       <div className={cx('overlay')}>
         <div className={cx('overlay-main')}>

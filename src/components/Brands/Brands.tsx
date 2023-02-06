@@ -30,12 +30,12 @@ function Brands(props: Props) {
               return (
                 <div className="h-[100px] laptop:h-[120px]" key={p.id}>
                   <a href={p.url} target="blank">
-                    <Image
+                    <img
                       className="w-full h-full "
                       src={process.env.HOST_NAME_API + '/' + p.img}
                       alt={p.name}
-                      width={300}
-                      height={150}
+                      // width={300}
+                      // height={150}
                     />
                   </a>
                 </div>

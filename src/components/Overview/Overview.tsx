@@ -77,15 +77,15 @@ function Overview(props: Props) {
         </div>
       </div>
       <div className={cx('overview-right')}>
-        <Image
+        <img
           className={`m-auto w-[380px] tablet:w-[450px] laptop:w-[700px] laptop:m-0 ${cx(
             'overview-right_img'
           )}`}
           src="/banner-vfast.png"
           alt="CÔNG TY GIẢI PHÁP CÔNG NGHỆ V-FAST"
           ref={img}
-          width={800}
-          height={800}
+          // width={800}
+          // height={800}
         />
       </div>
     </section>

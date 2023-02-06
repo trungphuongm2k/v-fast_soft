@@ -40,12 +40,12 @@ function Header() {
       <nav className={`${cx('nav')} w-full desktop:w-[1270px]`}>
         <div className={cx('nav-logo')}>
           <Link href="/">
-            <Image
+            <img
               className={cx('img-logo')}
               src={process.env.HOST_NAME_API + '/' + logo}
               alt="logo vfast"
-              width={125}
-              height={60}
+              // width={125}
+              // height={60}
             />
           </Link>
         </div>
@@ -115,12 +115,12 @@ function Header() {
                 }}
               />
               <div className={cx('nav-logo_mobile')}>
-                <Image
+                <img
                   className={cx('img-logo-mobile')}
                   src={process.env.HOST_NAME_API + '/' + logo}
                   alt="logo vfast"
-                  width={200}
-                  height={100}
+                  // width={200}
+                  // height={100}
                 />
               </div>
               <span className="italic text-sm">
