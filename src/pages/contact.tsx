@@ -26,8 +26,8 @@ function Contact(props: Props) {
             className="w-full h-full object-cover"
             src="/contact.jpg"
             alt="Hợp tác với chúng tôi"
-            width={1000}
-            height={1000}
+            width={900}
+            height={900}
           />
           <div className="absolute top-1/2 left-0 translate-y-[-50%] bg-[#0000007b] w-full h-full p-[20px] flex flex-col justify-center items-center">
             <h1 className="text-[#fff] text-3xl font-semibold py-5">

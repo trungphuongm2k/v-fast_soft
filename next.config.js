@@ -6,9 +6,14 @@ const nextConfig = {
     HOST_NAME_API: process.env.HOST_NAME_API,
   },
   images: {
-    domains: ['dev-vfast-api.vfastsoft.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.vfastsoft.com',
+      },
+    ],
+    domains: ['https://dev-vfast-api.vfastsoft.com', 'vfastsoft.com'],
     path: '/_next/image',
-    minimumCacheTTL: 60,
   },
 };
 
